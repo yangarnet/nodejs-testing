@@ -1,0 +1,39 @@
+{
+    "version": "0.2.0",
+    "configurations": [{
+            "type": "node",
+            "request": "launch",
+            "name": "Mocha Tests",
+            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+            "stopOnEntry": false,
+            "args": [
+                "-u",
+                "tdd",
+                "--timeout",
+                "999999",
+                "--colors",
+                "--require",
+                "babel-core/register",
+                "${workspaceRoot}/rewire-mock-data/test/order.spec.js"
+            ],
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/babel-node",
+            "internalConsoleOptions": "openOnSessionStart",
+            "env": {
+                "NODE-ENV": "testing"
+            }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceRoot}/app.js"
+        }
+    ]
+}
+
+/**
+for this bit: "${workspaceRoot}/rewire-mock-data/test/order.spec.js"
+you can set it like:  ${workspaceRoot}/**/
+/*.spec.js
+to include any test case.
+**/
