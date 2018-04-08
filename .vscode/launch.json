@@ -14,7 +14,7 @@
                 "--colors",
                 "--require",
                 "babel-core/register",
-                "${workspaceRoot}/rewire-mock-data/test/order.spec.js"
+                "${workspaceRoot}/supertest-express/test/app-spec.js"
             ],
             "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/babel-node",
             "internalConsoleOptions": "openOnSessionStart",
@@ -37,3 +37,7 @@ you can set it like:  ${workspaceRoot}/**/
 /*.spec.js
 to include any test case.
 **/
+
+
+//in this project, to run the code coverage with istanbul, do the following:
+// terminal $istanbul cover _mocha **/*.spec.js **/**/*.spec.js --  --require babel-register

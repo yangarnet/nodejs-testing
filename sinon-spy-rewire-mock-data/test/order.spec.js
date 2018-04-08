@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import rewire from 'rewire';
+import sinon from 'sinon';
 
 // now rewire the data, rewire injects data into the module order
 let order = rewire('../lib/order');
@@ -16,15 +17,24 @@ describe('Test order item', () => {
             {sku: 'abcdef', qty: 30 , inStock: true},
             {sku: 'abcdefg', qty: 31 , inStock: true}
         ];
+        // now inject a console.log
+        this.console = {
+            log: sinon.spy() // simulate function calls!
+        };
 
+        // inject the data into the module
         order.__set__('inventoryData', this.testData);
+        // inject a mock console
+        order.__set__('console', this.console);
+
     });
 
-    it('should return in stock item ', () => {
+    it('should return in stock item ', function() {
         const toFind = {sku: 'abcd'};
-        const result = order.itemAvailability(toFind.sku, 12);
-
+        const result = order.itemAvailability(toFind.sku, 1);
         expect(result).to.be.equal(true);
+        expect(this.console.called);
+        expect(this.console.log.callCount).to.be.equal(1, 'console.log() should be called only once!');
     });
 
 });
