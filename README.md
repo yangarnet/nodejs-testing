@@ -1,8 +1,4 @@
 
-# Airtasker Front End Test
-
-Thanks for your interest in Airtasker. As part of our hiring process Airtasker likes to ask candidates to complete a coding exercise. It is designed to allow candidates to show their coding skills and helps us assess a candidate's abilities.
-
 ## The task
 
 The objective is to create an Airtasker activity feed application that looks like the example below. We've provided an `activity_feed.json` file that contains the data you should be using.
